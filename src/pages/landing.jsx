@@ -9,10 +9,21 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
+/**
+ * Renders the Landing Page component for a URL shortener application.
+ * @returns {JSX.Element} A React component that displays a form for URL shortening, an image, and an accordion with FAQ.
+ */
 const LandingPage = () => {
   const [longUrl, setLongUrl] = useState("");
   const navigate = useNavigate();
 
+  ```
+  /**
+   * Handles the shortening of a URL when the form is submitted.
+   * @param {Event} e - The event object from the form submission.
+   * @returns {void} This function doesn't return anything, but navigates to a new route.
+   */
+  ```
   const handleShorten = (e) => {
     e.preventDefault();
     if (longUrl) navigate(`/auth?createNew=${longUrl}`);
@@ -31,6 +42,11 @@ const LandingPage = () => {
           type="url"
           placeholder="Enter your long URL"
           value={longUrl}
+          /**
+           * Event handler for updating the long URL input
+           * @param {React.ChangeEvent<HTMLInputElement>} e - The change event object
+           * @returns {void} This function does not return a value
+           */
           onChange={(e) => setLongUrl(e.target.value)}
           className="h-full flex-1 py-4 px-4"
         />

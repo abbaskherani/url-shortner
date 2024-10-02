@@ -5,8 +5,20 @@ import {UrlState} from "@/context";
 import {useEffect} from "react";
 import {useNavigate, useSearchParams} from "react-router-dom";
 
+/**
+ * Authentication component for handling user login and signup.
+ * @returns {JSX.Element} A component that renders a login/signup form with tabs.
+ */
 function Auth() {
   let [searchParams] = useSearchParams();
+  /**
+   * React hook that navigates to the dashboard when authenticated
+   * @param {boolean} isAuthenticated - Flag indicating if the user is authenticated
+   * @param {boolean} loading - Flag indicating if authentication is still in progress
+   * @param {function} navigate - Function to navigate to a new route
+   * @param {string} longLink - Optional URL parameter for creating a new item
+   * @returns {void} This effect does not return anything
+   */
   const navigate = useNavigate();
   const {isAuthenticated, loading} = UrlState();
   const longLink = searchParams.get("createNew");

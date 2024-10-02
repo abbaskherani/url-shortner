@@ -1,7 +1,13 @@
 import Header from "@/components/header";
 import {Outlet} from "react-router-dom";
 
-const AppLayout = () => {
+```
+/**
+ * Renders the main application layout
+ * @returns {JSX.Element} The rendered application layout
+ */
+
+```const AppLayout = () => {
   return (
     <div>
       <main className="min-h-screen container">

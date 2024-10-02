@@ -5,6 +5,13 @@ import { cn } from "@/lib/utils"
 
 const Tabs = TabsPrimitive.Root
 
+/**
+ * A customizable tabs list component that wraps the TabsPrimitive.List
+ * @param {Object} props - The props object
+ * @param {string} [props.className] - Additional CSS class names to apply to the component
+ * @param {React.Ref} ref - A forwarded ref to be applied to the underlying TabsPrimitive.List
+ * @returns {React.ReactElement} A styled TabsPrimitive.List component
+ */
 const TabsList = React.forwardRef(({ className, ...props }, ref) => (
   <TabsPrimitive.List
     ref={ref}
@@ -16,6 +23,13 @@ const TabsList = React.forwardRef(({ className, ...props }, ref) => (
 ))
 TabsList.displayName = TabsPrimitive.List.displayName
 
+/**
+ * A custom React component that wraps the TabsPrimitive.Trigger component with additional styling and functionality.
+ * @param {Object} props - The props object containing component properties.
+ * @param {string} [props.className] - Additional CSS classes to apply to the component.
+ * @param {React.Ref} ref - A forwarded ref to be applied to the underlying TabsPrimitive.Trigger component.
+ * @returns {React.ReactElement} A styled and enhanced tabs trigger component.
+ */
 const TabsTrigger = React.forwardRef(({ className, ...props }, ref) => (
   <TabsPrimitive.Trigger
     ref={ref}
@@ -27,6 +41,13 @@ const TabsTrigger = React.forwardRef(({ className, ...props }, ref) => (
 ))
 TabsTrigger.displayName = TabsPrimitive.Trigger.displayName
 
+/**
+ * A forwardRef component that renders the content of a tab panel.
+ * @param {Object} props - The properties passed to the component.
+ * @param {string} [props.className] - Additional CSS class names to apply to the component.
+ * @param {React.Ref} ref - The ref to be forwarded to the underlying TabsPrimitive.Content component.
+ * @returns {React.ReactElement} A React component representing the content of a tab panel.
+ */
 const TabsContent = React.forwardRef(({ className, ...props }, ref) => (
   <TabsPrimitive.Content
     ref={ref}

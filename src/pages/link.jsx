@@ -11,7 +11,16 @@ import {useEffect} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import {BarLoader, BeatLoader} from "react-spinners";
 
+/**
+ * Renders a page displaying detailed information and statistics for a shortened URL
+ * @returns {JSX.Element} A React component that shows URL details, QR code, and click statistics
+ */
 const LinkPage = () => {
+  /**
+   * Downloads an image from a URL and triggers a file download in the browser.
+   * @param {void} - This function doesn't accept any parameters directly.
+   * @returns {void} This function doesn't return a value.
+   */
   const downloadImage = () => {
     const imageUrl = url?.qr;
     const fileName = url?.title;
@@ -48,6 +57,18 @@ const LinkPage = () => {
 
   const {loading: loadingDelete, fn: fnDelete} = useFetch(deleteUrl, id);
 
+  /**
+   * Executes a side effect after the component mounts
+   * @param {function} fn - The function to be executed as a side effect
+   * @returns {undefined} No return value
+   /**
+    * React hook that triggers the fnStats function when loading is complete and there are no errors
+    * @param {function} fnStats - Function to be called when conditions are met
+    * @param {boolean} loading - Boolean indicating whether data is still loading
+    * @param {any} error - Error object or value, if any error occurred during loading
+    * @returns {void} This hook doesn't return anything
+    */
+   */
   useEffect(() => {
     fn();
   }, []);
@@ -96,12 +117,27 @@ const LinkPage = () => {
           <div className="flex gap-2">
             <Button
               variant="ghost"
+              /**
+               * Copies a shortened URL to the clipboard
+               * @param {void} - This function doesn't take any parameters
+               * @returns {void} This function doesn't return a value
+               */
               onClick={() =>
                 navigator.clipboard.writeText(`https://trimrr.in/${link}`)
+              /**
+               * Deletes an item and navigates to the dashboard upon successful deletion.
+               * @param {void} - This function doesn't take any parameters.
+               * @returns {Promise<void>} A promise that resolves when the deletion is complete and navigation occurs.
+               */
               }
             >
               <Copy />
             </Button>
+            /**
+             * Handles the click event to delete an item and navigate to the dashboard
+             * @param {void} - No parameters
+             * @returns {Promise<void>} A promise that resolves when the deletion is complete and navigation occurs
+             */
             <Button variant="ghost" onClick={downloadImage}>
               <Download />
             </Button>
